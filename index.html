@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Atlas | Gestão</title>
+
+    <!-- Arquivo responsável pelo visual do site -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="app">
+
+        <!-- =====================================================
+             PÁGINA INICIAL
+        ====================================================== -->
+
+        <section id="homePage" class="page">
+
+            <!-- Barra superior -->
+            <header class="topbar">
+
+                <div class="brand">
+
+                    <!-- Logo -->
+                    <img src="assets/logo.png" alt="Logo Atlas">
+
+                    <!-- Nome -->
+                    <span>Atlas</span>
+
+                </div>
+
+                <div class="top-actions">
+
+                    <button
+                        class="link-btn"
+                        onclick="abrirLogin()">
+                        Gerencia
+                    </button>
+
+                    <button
+                        class="primary-btn small"
+                        type="button">
+                        Loja
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- Conteúdo principal -->
+            <main class="home-content">
+
+                <!-- Logo central -->
+                <img
+                    class="main-logo"
+                    src="assets/logo.png"
+                    alt="Logo Atlas">
+
+
+                <!-- Título -->
+                <h1>
+                    Organize e gerencie sua empresa
+                    <br>
+                    com clareza
+                </h1>
+
+
+                <!-- Descrição -->
+                <p class="subtitle">
+
+                    Controle de estoque, fluxo financeiro e
+                    gráficos de desempenho — tudo em um painel
+                    simples e poderoso.
+
+                </p>
+
+
+                <!-- Botões -->
+                <div class="home-buttons">
+
+                    <button
+                        class="primary-btn"
+                        onclick="abrirLogin()">
+                        Gerencia
+                    </button>
+
+                    <button
+                        class="secondary-btn"
+                        type="button">
+                        Loja
+                    </button>
+
+                </div>
+
+
+                <!-- Recursos -->
+                <div class="feature-grid">
+
+
+                    <!-- Estoque -->
+                    <article class="feature-card">
+
+                        <div class="feature-icon">
+                            ▣
+                        </div>
+
+                        <h3>
+                            Estoque
+                        </h3>
+
+                        <p>
+                            Cadastre produtos, controle
+                            quantidades e valores em tempo real.
+                        </p>
+
+                    </article>
+
+
+                    <!-- Financeiro -->
+                    <article class="feature-card">
+
+                        <div class="feature-icon">
+                            R$
+                        </div>
+
+                        <h3>
+                            Financeiro
+                        </h3>
+
+                        <p>
+                            Registre receitas e despesas
+                            e acompanhe seu saldo.
+                        </p>
+
+                    </article>
+
+
+                    <!-- Gráficos -->
+                    <article class="feature-card">
+
+                        <div class="feature-icon">
+                            ⌁
+                        </div>
+
+                        <h3>
+                            Gráficos
+                        </h3>
+
+                        <p>
+                            Visualize o desempenho e tome
+                            decisões com dados.
+                        </p>
+
+                    </article>
+
+                </div>
+
+
+                <!-- Segurança -->
+                <div class="security-badge">
+
+                    Seguro · Multi-usuário · Em tempo real
+
+                </div>
+
+            </main>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             TELA DE LOGIN
+        ====================================================== -->
+
+        <section
+            id="loginPage"
+            class="page hidden">
+
+            <div class="login-layout">
+
+
+                <!-- Área do login -->
+                <div class="login-side">
+
+                    <div class="login-brand">
+
+                        <img
+                            src="assets/logo.png"
+                            alt="Logo Atlas">
+
+                        <span>
+                            Atlas
+                        </span>
+
+                    </div>
+
+
+                    <div class="login-card">
+
+                        <h2>
+                            Entrar
+                        </h2>
+
+                        <p>
+                            Acesse seu painel de gestão.
+                        </p>
+
+
+                        <!-- Formulário -->
+                        <form
+                            onsubmit="fazerLogin(event)">
+
+
+                            <!-- Usuário -->
+                            <label for="usuario">
+                                Usuário ou e-mail
+                            </label>
+
+                            <input
+                                id="usuario"
+                                type="text"
+                                autocomplete="username"
+                                value="Adm123"
+                                required>
+
+
+                            <!-- Senha -->
+                            <label for="senha">
+                                Senha
+                            </label>
+
+                            <div class="password-wrap">
+
+                                <input
+                                    id="senha"
+                                    type="password"
+                                    autocomplete="current-password"
+                                    required>
+
+                                <button
+                                    type="button"
+                                    class="eye"
+                                    onclick="mostrarSenha()">
+
+                                    ◉
+
+                                </button>
+
+                            </div>
+
+
+                            <!-- Entrar -->
+                            <button
+                                class="primary-btn full"
+                                type="submit">
+
+                                Entrar
+
+                            </button>
+
+                        </form>
+
+
+                        <!-- Mensagem de erro -->
+                        <div
+                            id="loginError"
+                            class="login-error">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Imagem -->
+                <div class="login-image">
+
+                    <img
+                        src="assets/imglogin.jpg"
+                        alt="Organização empresarial">
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             PAINEL PRINCIPAL
+        ====================================================== -->
+
+        <section
+            id="dashboardPage"
+            class="page hidden dashboard">
+
+
+            <!-- MENU LATERAL -->
+            <aside class="sidebar">
+
+
+                <!-- Logo -->
+                <div class="sidebar-brand">
+
+                    <img
+                        src="assets/logo.png"
+                        alt="Logo Atlas">
+
+                    <span>
+                        Atlas
+                    </span>
+
+                </div>
+
+
+                <!-- Menu -->
+                <nav>
+
+
+                    <button
+                        class="nav-item active"
+                        data-page="cadastro"
+                        onclick="abrirPainel('cadastro')">
+
+                        Cadastro
+
+                    </button>
+
+
+                    <button
+                        class="nav-item"
+                        data-page="estoque"
+                        onclick="abrirPainel('estoque')">
+
+                        Estoque
+
+                    </button>
+
+
+                    <button
+                        class="nav-item"
+                        data-page="financeiro"
+                        onclick="abrirPainel('financeiro')">
+
+                        Financeiro
+
+                    </button>
+
+
+                    <button
+                        class="nav-item"
+                        data-page="graficos"
+                        onclick="abrirPainel('graficos')">
+
+                        Gráficos
+
+                    </button>
+
+                </nav>
+
+
+                <!-- Sair -->
+                <button
+                    class="logout-btn"
+                    onclick="sair()">
+
+                    Sair
+
+                </button>
+
+            </aside>
+
+
+
+            <!-- CONTEÚDO DO PAINEL -->
+            <main class="panel-content">
+
+
+                <!-- =================================================
+                     CADASTRO
+                ================================================== -->
+
+                <div
+                    id="cadastroPanel"
+                    class="panel-section">
+
+                    <h2>
+                        Cadastro de Produto
+                    </h2>
+
+
+                    <div class="form-card">
+
+                        <form
+                            onsubmit="cadastrarProduto(event)">
+
+
+                            <label for="nomeProduto">
+                                Nome
+                            </label>
+
+                            <input
+                                id="nomeProduto"
+                                type="text"
+                                required>
+
+
+                            <label for="precoProduto">
+                                Preço
+                            </label>
+
+                            <input
+                                id="precoProduto"
+                                type="number"
+                                min="0"
+                                step="0.01"
+                                required>
+
+
+                            <label for="quantidadeProduto">
+                                Quantidade
+                            </label>
+
+                            <input
+                                id="quantidadeProduto"
+                                type="number"
+                                min="0"
+                                step="1"
+                                required>
+
+
+                            <label for="validadeProduto">
+                                Validade
+                            </label>
+
+                            <input
+                                id="validadeProduto"
+                                type="date"
+                                required>
+
+
+                            <label for="loteProduto">
+                                Lote
+                            </label>
+
+                            <input
+                                id="loteProduto"
+                                type="text"
+                                required>
+
+
+                            <button
+                                class="primary-btn"
+                                type="submit">
+
+                                Cadastrar
+
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     ESTOQUE
+                ================================================== -->
+
+                <div
+                    id="estoquePanel"
+                    class="panel-section hidden">
+
+                    <h2>
+                        Estoque
+                    </h2>
+
+
+                    <div class="table-card">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Nome
+                                    </th>
+
+                                    <th>
+                                        Preço
+                                    </th>
+
+                                    <th>
+                                        Quantidade
+                                    </th>
+
+                                    <th>
+                                        Validade
+                                    </th>
+
+                                    <th>
+                                        Lote
+                                    </th>
+
+                                    <th>
+                                        Ações
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="estoqueBody">
+
+                            </tbody>
+
+                        </table>
+
+
+                        <div
+                            id="estoqueVazio"
+                            class="empty-state">
+
+                            Nenhum produto cadastrado.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     FINANCEIRO
+                ================================================== -->
+
+                <div
+                    id="financeiroPanel"
+                    class="panel-section hidden">
+
+                    <h2>
+                        Financeiro
+                    </h2>
+
+
+                    <!-- Resumo -->
+                    <div class="summary-grid">
+
+
+                        <div class="summary-card">
+
+                            <span>
+                                Entradas
+                            </span>
+
+                            <strong id="totalEntradas">
+                                R$ 0,00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-card">
+
+                            <span>
+                                Saídas
+                            </span>
+
+                            <strong id="totalSaidas">
+                                R$ 0,00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-card">
+
+                            <span>
+                                Saldo
+                            </span>
+
+                            <strong id="saldoFinanceiro">
+                                R$ 0,00
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Movimentação -->
+                    <div class="finance-card">
+
+                        <span class="section-label">
+                            Lançar movimentação
+                        </span>
+
+
+                        <div class="movement-form">
+
+
+                            <select id="tipoMovimento">
+
+                                <option value="saida">
+                                    Saída
+                                </option>
+
+                                <option value="entrada">
+                                    Entrada
+                                </option>
+
+                            </select>
+
+
+                            <input
+                                id="valorMovimento"
+                                type="number"
+                                min="0"
+                                step="0.01"
+                                placeholder="Valor">
+
+
+                            <input
+                                id="descricaoMovimento"
+                                type="text"
+                                placeholder="Descrição">
+
+
+                            <button
+                                class="primary-btn"
+                                onclick="adicionarMovimento()">
+
+                                Adicionar
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Comparativo -->
+                    <div class="finance-card period-card">
+
+                        <div class="period-header">
+
+                            <span class="section-label">
+                                Comparativo por período
+                            </span>
+
+
+                            <div class="period-buttons">
+
+                                <button
+                                    onclick="selecionarPeriodo(this)">
+                                    Dia
+                                </button>
+
+                                <button
+                                    onclick="selecionarPeriodo(this)">
+                                    Semana
+                                </button>
+
+                                <button
+                                    class="selected"
+                                    onclick="selecionarPeriodo(this)">
+                                    Mês
+                                </button>
+
+                                <button
+                                    onclick="selecionarPeriodo(this)">
+                                    Ano
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Período
+                                    </th>
+
+                                    <th>
+                                        Entradas
+                                    </th>
+
+                                    <th>
+                                        Saídas
+                                    </th>
+
+                                    <th>
+                                        Saldo
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="periodoBody">
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     GRÁFICOS
+                ================================================== -->
+
+                <div
+                    id="graficosPanel"
+                    class="panel-section hidden">
+
+                    <h2>
+                        Gráficos
+                    </h2>
+
+
+                    <div class="charts-grid">
+
+
+                        <div class="chart-card">
+
+                            <h3>
+                                Movimentação financeira
+                            </h3>
+
+                            <canvas
+                                id="financeChart">
+                            </canvas>
+
+                        </div>
+
+
+                        <div class="chart-card">
+
+                            <h3>
+                                Quantidade em estoque
+                            </h3>
+
+                            <canvas
+                                id="stockChart">
+                            </canvas>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </main>
+
+        </section>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
