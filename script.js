@@ -1,45 +1,13 @@
-/* ============================================================
-   ATLAS — JAVASCRIPT
-   Aqui ficam as funções que fazem o site funcionar.
-   ============================================================ */
-
-
-/* ============================================================
-   DADOS
-   ============================================================ */
-
-/*
-   Recupera os produtos salvos no navegador.
-
-   Se ainda não existir nenhum produto,
-   começa com uma lista vazia.
-*/
-
+```javascript
 let produtos =
     JSON.parse(
         localStorage.getItem("atlasProdutos")
     ) || [];
 
-
-/*
-   Recupera as movimentações financeiras.
-*/
-
 let movimentos =
     JSON.parse(
         localStorage.getItem("atlasMovimentos")
     ) || [];
-
-
-
-/* ============================================================
-   NAVEGAÇÃO
-   ============================================================ */
-
-
-/*
-   Abre a tela de login.
-*/
 
 function abrirLogin() {
 
@@ -48,12 +16,10 @@ function abrirLogin() {
         .classList
         .add("hidden");
 
-
     document
         .getElementById("dashboardPage")
         .classList
         .add("hidden");
-
 
     document
         .getElementById("loginPage")
@@ -61,24 +27,9 @@ function abrirLogin() {
         .remove("hidden");
 }
 
-
-
-/*
-   Faz o login.
-*/
-
 function fazerLogin(event) {
 
-    /*
-       Impede o navegador de atualizar a página.
-    */
-
     event.preventDefault();
-
-
-    /*
-       Pega o usuário digitado.
-    */
 
     const usuario =
         document
@@ -86,77 +37,33 @@ function fazerLogin(event) {
             .value
             .trim();
 
-
-    /*
-       Pega a senha digitada.
-    */
-
     const senha =
         document
             .getElementById("senha")
             .value;
-
-
-    /*
-       Login padrão do projeto.
-
-       Usuário:
-       Adm123
-
-       Senha:
-       123456
-    */
 
     if (
         usuario.toLowerCase() === "adm123" &&
         senha === "123456"
     ) {
 
-
-        /*
-           Remove mensagem de erro.
-        */
-
         document
             .getElementById("loginError")
             .textContent = "";
-
-
-        /*
-           Esconde o login.
-        */
 
         document
             .getElementById("loginPage")
             .classList
             .add("hidden");
 
-
-        /*
-           Mostra o painel.
-        */
-
         document
             .getElementById("dashboardPage")
             .classList
             .remove("hidden");
 
-
-        /*
-           Abre Cadastro automaticamente.
-        */
-
         abrirPainel("cadastro");
 
-    }
-
-    else {
-
-
-        /*
-           Mostra erro caso a senha
-           ou usuário estejam errados.
-        */
+    } else {
 
         document
             .getElementById("loginError")
@@ -167,37 +74,16 @@ function fazerLogin(event) {
 
 }
 
-
-
-/* ============================================================
-   MOSTRAR / ESCONDER SENHA
-   ============================================================ */
-
 function mostrarSenha() {
-
-    /*
-       Pega o campo de senha.
-    */
 
     const campo =
         document.getElementById("senha");
-
-
-    /*
-       Se estiver escondido,
-       mostra.
-
-       Se estiver aparecendo,
-       esconde novamente.
-    */
 
     if (campo.type === "password") {
 
         campo.type = "text";
 
-    }
-
-    else {
+    } else {
 
         campo.type = "password";
 
@@ -205,37 +91,17 @@ function mostrarSenha() {
 
 }
 
-
-
-/* ============================================================
-   SAIR
-   ============================================================ */
-
 function sair() {
-
-    /*
-       Esconde o painel.
-    */
 
     document
         .getElementById("dashboardPage")
         .classList
         .add("hidden");
 
-
-    /*
-       Esconde o login.
-    */
-
     document
         .getElementById("loginPage")
         .classList
         .add("hidden");
-
-
-    /*
-       Volta para a página inicial.
-    */
 
     document
         .getElementById("homePage")
@@ -244,19 +110,7 @@ function sair() {
 
 }
 
-
-
-/* ============================================================
-   MENU DO PAINEL
-   ============================================================ */
-
 function abrirPainel(nome) {
-
-
-    /*
-       Esconde todas as áreas
-       do painel.
-    */
 
     document
         .querySelectorAll(".panel-section")
@@ -270,21 +124,10 @@ function abrirPainel(nome) {
             }
         );
 
-
-    /*
-       Mostra somente a área escolhida.
-    */
-
     document
         .getElementById(nome + "Panel")
         .classList
         .remove("hidden");
-
-
-    /*
-       Atualiza o botão ativo
-       do menu lateral.
-    */
 
     document
         .querySelectorAll(".nav-item")
@@ -299,25 +142,17 @@ function abrirPainel(nome) {
             }
         );
 
-
-    /*
-       Atualizações específicas
-       para cada área.
-    */
-
     if (nome === "estoque") {
 
         atualizarEstoque();
 
     }
 
-
     if (nome === "financeiro") {
 
         atualizarFinanceiro();
 
     }
-
 
     if (nome === "graficos") {
 
@@ -327,27 +162,12 @@ function abrirPainel(nome) {
 
 }
 
-
-
-/* ============================================================
-   SALVAR DADOS
-   ============================================================ */
-
 function salvarDados() {
-
-    /*
-       Salva os produtos.
-    */
 
     localStorage.setItem(
         "atlasProdutos",
         JSON.stringify(produtos)
     );
-
-
-    /*
-       Salva as movimentações.
-    */
 
     localStorage.setItem(
         "atlasMovimentos",
@@ -356,25 +176,9 @@ function salvarDados() {
 
 }
 
-
-
-/* ============================================================
-   CADASTRO DE PRODUTO
-   ============================================================ */
-
 function cadastrarProduto(event) {
 
-    /*
-       Impede o formulário
-       de atualizar a página.
-    */
-
     event.preventDefault();
-
-
-    /*
-       Cria um novo produto.
-    */
 
     const produto = {
 
@@ -413,51 +217,19 @@ function cadastrarProduto(event) {
 
     };
 
-
-    /*
-       Adiciona o produto à lista.
-    */
-
     produtos.push(produto);
-
-
-    /*
-       Salva no navegador.
-    */
 
     salvarDados();
 
-
-    /*
-       Limpa os campos.
-    */
-
     event.target.reset();
-
-
-    /*
-       Mostra confirmação.
-    */
 
     alert(
         "Produto cadastrado com sucesso!"
     );
 
-
-    /*
-       Abre automaticamente
-       a tela de estoque.
-    */
-
     abrirPainel("estoque");
 
 }
-
-
-
-/* ============================================================
-   FORMATAÇÃO DE DATA
-   ============================================================ */
 
 function formatarData(data) {
 
@@ -467,28 +239,8 @@ function formatarData(data) {
 
     }
 
-
-    /*
-       Divide:
-
-       2026-08-18
-
-       em:
-
-       2026
-       08
-       18
-    */
-
     const partes =
         data.split("-");
-
-
-    /*
-       Retorna:
-
-       18/08/2026
-    */
 
     return (
         partes[2] +
@@ -499,12 +251,6 @@ function formatarData(data) {
     );
 
 }
-
-
-
-/* ============================================================
-   FORMATAÇÃO DE DINHEIRO
-   ============================================================ */
 
 function moeda(valor) {
 
@@ -519,44 +265,17 @@ function moeda(valor) {
 
 }
 
-
-
-/* ============================================================
-   MOSTRAR ESTOQUE
-   ============================================================ */
-
 function atualizarEstoque() {
-
-    /*
-       Pega a tabela.
-    */
 
     const body =
         document
             .getElementById("estoqueBody");
 
-
-    /*
-       Pega a mensagem
-       de estoque vazio.
-    */
-
     const vazio =
         document
             .getElementById("estoqueVazio");
 
-
-    /*
-       Limpa a tabela.
-    */
-
     body.innerHTML = "";
-
-
-    /*
-       Se não houver produtos,
-       mostra a mensagem.
-    */
 
     if (produtos.length === 0) {
 
@@ -566,34 +285,13 @@ function atualizarEstoque() {
 
     }
 
-
-    /*
-       Esconde a mensagem.
-    */
-
     vazio.style.display = "none";
-
-
-    /*
-       Percorre todos os produtos.
-    */
 
     produtos.forEach(
         produto => {
 
-
-            /*
-               Cria uma nova linha.
-            */
-
             const tr =
                 document.createElement("tr");
-
-
-            /*
-               Coloca os dados
-               dentro da linha.
-            */
 
             tr.innerHTML = `
 
@@ -631,11 +329,6 @@ function atualizarEstoque() {
 
             `;
 
-
-            /*
-               Adiciona a linha à tabela.
-            */
-
             body.appendChild(tr);
 
         }
@@ -643,18 +336,7 @@ function atualizarEstoque() {
 
 }
 
-
-
-/* ============================================================
-   EXCLUIR PRODUTO
-   ============================================================ */
-
 function excluirProduto(id) {
-
-
-    /*
-       Pergunta antes de excluir.
-    */
 
     if (
         !confirm(
@@ -666,40 +348,17 @@ function excluirProduto(id) {
 
     }
 
-
-    /*
-       Mantém somente
-       os produtos diferentes
-       do escolhido.
-    */
-
     produtos =
         produtos.filter(
             produto =>
                 produto.id !== id
         );
 
-
-    /*
-       Salva a nova lista.
-    */
-
     salvarDados();
-
-
-    /*
-       Atualiza a tabela.
-    */
 
     atualizarEstoque();
 
 }
-
-
-
-/* ============================================================
-   SEGURANÇA DO TEXTO
-   ============================================================ */
 
 function escapar(texto) {
 
@@ -732,29 +391,12 @@ function escapar(texto) {
 
 }
 
-
-
-/* ============================================================
-   FINANCEIRO
-   ============================================================ */
-
 function adicionarMovimento() {
-
-
-    /*
-       Descobre se é entrada
-       ou saída.
-    */
 
     const tipo =
         document
             .getElementById("tipoMovimento")
             .value;
-
-
-    /*
-       Pega o valor.
-    */
 
     const valor =
         Number(
@@ -763,21 +405,11 @@ function adicionarMovimento() {
                 .value
         );
 
-
-    /*
-       Pega a descrição.
-    */
-
     const descricao =
         document
             .getElementById("descricaoMovimento")
             .value
             .trim();
-
-
-    /*
-       Verifica se o valor é válido.
-    */
 
     if (!valor || valor <= 0) {
 
@@ -788,11 +420,6 @@ function adicionarMovimento() {
         return;
 
     }
-
-
-    /*
-       Cria a movimentação.
-    */
 
     movimentos.push({
 
@@ -809,61 +436,28 @@ function adicionarMovimento() {
 
     });
 
-
-    /*
-       Salva.
-    */
-
     salvarDados();
-
-
-    /*
-       Limpa os campos.
-    */
 
     document
         .getElementById("valorMovimento")
         .value = "";
 
-
     document
         .getElementById("descricaoMovimento")
         .value = "";
-
-
-    /*
-       Atualiza os valores.
-    */
 
     atualizarFinanceiro();
 
 }
 
-
-
-/* ============================================================
-   CALCULAR FINANCEIRO
-   ============================================================ */
-
 function calcularTotais() {
-
 
     let entradas = 0;
 
     let saidas = 0;
 
-
-    /*
-       Percorre as movimentações.
-    */
-
     movimentos.forEach(
         movimento => {
-
-
-            /*
-               Entrada.
-            */
 
             if (
                 movimento.tipo ===
@@ -875,14 +469,7 @@ function calcularTotais() {
                         movimento.valor
                     );
 
-            }
-
-
-            /*
-               Saída.
-            */
-
-            else {
+            } else {
 
                 saidas +=
                     Number(
@@ -893,11 +480,6 @@ function calcularTotais() {
 
         }
     );
-
-
-    /*
-       Retorna os valores.
-    */
 
     return {
 
@@ -912,104 +494,46 @@ function calcularTotais() {
 
 }
 
-
-
-/* ============================================================
-   ATUALIZAR FINANCEIRO
-   ============================================================ */
-
 function atualizarFinanceiro() {
-
-
-    /*
-       Calcula os totais.
-    */
 
     const totais =
         calcularTotais();
-
-
-    /*
-       Mostra entradas.
-    */
 
     document
         .getElementById("totalEntradas")
         .textContent =
         moeda(totais.entradas);
 
-
-    /*
-       Mostra saídas.
-    */
-
     document
         .getElementById("totalSaidas")
         .textContent =
         moeda(totais.saidas);
-
-
-    /*
-       Mostra saldo.
-    */
 
     document
         .getElementById("saldoFinanceiro")
         .textContent =
         moeda(totais.saldo);
 
-
-    /*
-       Atualiza a tabela.
-    */
-
     atualizarPeriodo();
 
 }
 
-
-
-/* ============================================================
-   TABELA DE PERÍODO
-   ============================================================ */
-
 function atualizarPeriodo() {
-
 
     const body =
         document
             .getElementById("periodoBody");
 
-
     const agora =
         new Date();
-
-
-    /*
-       Pega o mês atual.
-    */
 
     const mes =
         String(
             agora.getMonth() + 1
         ).padStart(2, "0");
 
-
-    /*
-       Cria o período.
-
-       Exemplo:
-
-       2026-08
-    */
-
     const periodo =
         `${agora.getFullYear()}-${mes}`;
-
-
-    /*
-       Soma entradas.
-    */
 
     const entradas =
         movimentos
@@ -1027,11 +551,6 @@ function atualizarPeriodo() {
                 0
             );
 
-
-    /*
-       Soma saídas.
-    */
-
     const saidas =
         movimentos
             .filter(
@@ -1047,11 +566,6 @@ function atualizarPeriodo() {
                     ),
                 0
             );
-
-
-    /*
-       Mostra os dados.
-    */
 
     body.innerHTML = `
 
@@ -1087,19 +601,7 @@ function atualizarPeriodo() {
 
 }
 
-
-
-/* ============================================================
-   BOTÕES DE PERÍODO
-   ============================================================ */
-
 function selecionarPeriodo(botao) {
-
-
-    /*
-       Remove a seleção
-       de todos os botões.
-    */
 
     document
         .querySelectorAll(
@@ -1116,112 +618,44 @@ function selecionarPeriodo(botao) {
             }
         );
 
-
-    /*
-       Seleciona o botão clicado.
-    */
-
     botao.classList
         .add("selected");
 
 }
 
-
-
-/* ============================================================
-   GRÁFICOS
-   ============================================================ */
-
 function desenharGraficos() {
 
-    /*
-       Desenha o gráfico financeiro.
-    */
-
     desenharGraficoFinanceiro();
-
-
-    /*
-       Desenha o gráfico de estoque.
-    */
 
     desenharGraficoEstoque();
 
 }
 
-
-
-/* ============================================================
-   PREPARAR CANVAS
-   ============================================================ */
-
 function prepararCanvas(id) {
-
-
-    /*
-       Localiza o gráfico.
-    */
 
     const canvas =
         document
             .getElementById(id);
 
-
-    /*
-       Descobre o tamanho.
-    */
-
     const rect =
         canvas.getBoundingClientRect();
-
-
-    /*
-       Melhora a qualidade
-       em telas de alta resolução.
-    */
 
     const dpr =
         window.devicePixelRatio || 1;
 
-
-    /*
-       Define largura.
-    */
-
     canvas.width =
         rect.width * dpr;
-
-
-    /*
-       Define altura.
-    */
 
     canvas.height =
         250 * dpr;
 
-
-    /*
-       Pega o contexto.
-    */
-
     const ctx =
         canvas.getContext("2d");
-
-
-    /*
-       Ajusta escala.
-    */
 
     ctx.scale(
         dpr,
         dpr
     );
-
-
-    /*
-       Retorna tudo
-       para o gráfico.
-    */
 
     return {
 
@@ -1237,40 +671,19 @@ function prepararCanvas(id) {
 
 }
 
-
-
-/* ============================================================
-   GRÁFICO FINANCEIRO
-   ============================================================ */
-
 function desenharGraficoFinanceiro() {
 
-
     const {
-
         ctx,
-
         width,
-
         height
-
     } =
         prepararCanvas(
             "financeChart"
         );
 
-
-    /*
-       Pega os valores.
-    */
-
     const totais =
         calcularTotais();
-
-
-    /*
-       Descobre o maior valor.
-    */
 
     const max =
         Math.max(
@@ -1279,22 +692,12 @@ function desenharGraficoFinanceiro() {
             1
         );
 
-
-    /*
-       Limpa o gráfico.
-    */
-
     ctx.clearRect(
         0,
         0,
         width,
         height
     );
-
-
-    /*
-       Desenha os eixos.
-    */
 
     ctx.strokeStyle =
         "#dfe3eb";
@@ -1320,47 +723,24 @@ function desenharGraficoFinanceiro() {
 
     ctx.stroke();
 
-
-    /*
-       Valores dos gráficos.
-    */
-
     const valores = [
-
         totais.entradas,
-
         totais.saidas
-
     ];
-
-
-    /*
-       Nomes.
-    */
 
     const nomes = [
-
         "Entradas",
-
         "Saídas"
-
     ];
-
-
-    /*
-       Desenha as duas barras.
-    */
 
     valores.forEach(
         (valor, i) => {
-
 
             const barWidth =
                 Math.min(
                     90,
                     width / 5
                 );
-
 
             const x =
                 width / 2 -
@@ -1369,82 +749,48 @@ function desenharGraficoFinanceiro() {
                 i *
                 (barWidth + 24);
 
-
             const barHeight =
                 (valor / max) *
                 170;
-
 
             const y =
                 height -
                 35 -
                 barHeight;
 
-
-            /*
-               Cor da barra.
-            */
-
             ctx.fillStyle =
                 i === 0
                     ? "#20a45a"
                     : "#e34646";
 
-
             ctx.fillRect(
-
                 x,
-
                 y,
-
                 barWidth,
-
                 barHeight
-
             );
-
-
-            /*
-               Texto.
-            */
 
             ctx.fillStyle =
                 "#333";
 
-
             ctx.font =
                 "10px Segoe UI";
-
 
             ctx.textAlign =
                 "center";
 
-
             ctx.fillText(
-
                 nomes[i],
-
                 x +
                 barWidth / 2,
-
                 height - 15
-
             );
 
-
-            /*
-               Valor.
-            */
-
             ctx.fillText(
-
                 moeda(valor),
-
                 x +
                 barWidth / 2,
-
                 y - 8
-
             );
 
         }
@@ -1452,32 +798,16 @@ function desenharGraficoFinanceiro() {
 
 }
 
-
-
-/* ============================================================
-   GRÁFICO DE ESTOQUE
-   ============================================================ */
-
 function desenharGraficoEstoque() {
 
-
     const {
-
         ctx,
-
         width,
-
         height
-
     } =
         prepararCanvas(
             "stockChart"
         );
-
-
-    /*
-       Limpa.
-    */
 
     ctx.clearRect(
         0,
@@ -1485,11 +815,6 @@ function desenharGraficoEstoque() {
         width,
         height
     );
-
-
-    /*
-       Eixos.
-    */
 
     ctx.strokeStyle =
         "#dfe3eb";
@@ -1513,11 +838,6 @@ function desenharGraficoEstoque() {
 
     ctx.stroke();
 
-
-    /*
-       Se não houver produto.
-    */
-
     if (
         produtos.length === 0
     ) {
@@ -1532,23 +852,14 @@ function desenharGraficoEstoque() {
             "center";
 
         ctx.fillText(
-
             "Nenhum produto cadastrado.",
-
             width / 2,
-
             height / 2
-
         );
 
         return;
 
     }
-
-
-    /*
-       Descobre a maior quantidade.
-    */
 
     const max =
         Math.max(
@@ -1559,18 +870,8 @@ function desenharGraficoEstoque() {
             1
         );
 
-
-    /*
-       Área disponível.
-    */
-
     const area =
         width - 75;
-
-
-    /*
-       Largura das barras.
-    */
 
     const quantidade =
         Math.min(
@@ -1578,23 +879,16 @@ function desenharGraficoEstoque() {
             8
         );
 
-
     const barWidth =
         Math.min(
             60,
             area / quantidade - 10
         );
 
-
-    /*
-       Cria cada barra.
-    */
-
     produtos
         .slice(0, 8)
         .forEach(
             (produto, i) => {
-
 
                 const x =
                     55 +
@@ -1604,7 +898,6 @@ function desenharGraficoEstoque() {
                         quantidade
                     );
 
-
                 const barHeight =
                     (
                         produto.quantidade /
@@ -1612,37 +905,20 @@ function desenharGraficoEstoque() {
                     ) *
                     170;
 
-
                 const y =
                     height -
                     35 -
                     barHeight;
 
-
-                /*
-                   Barra azul.
-                */
-
                 ctx.fillStyle =
                     "#155df5";
 
-
                 ctx.fillRect(
-
                     x,
-
                     y,
-
                     barWidth,
-
                     barHeight
-
                 );
-
-
-                /*
-                   Quantidade.
-                */
 
                 ctx.fillStyle =
                     "#333";
@@ -1653,30 +929,15 @@ function desenharGraficoEstoque() {
                 ctx.textAlign =
                     "center";
 
-
                 ctx.fillText(
-
                     produto.quantidade,
-
                     x +
                     barWidth / 2,
-
                     y - 7
-
                 );
-
-
-                /*
-                   Nome do produto.
-                */
 
                 let nome =
                     produto.nome;
-
-
-                /*
-                   Diminui nomes muito grandes.
-                */
 
                 if (
                     nome.length > 9
@@ -1691,16 +952,11 @@ function desenharGraficoEstoque() {
 
                 }
 
-
                 ctx.fillText(
-
                     nome,
-
                     x +
                     barWidth / 2,
-
                     height - 15
-
                 );
 
             }
@@ -1708,32 +964,17 @@ function desenharGraficoEstoque() {
 
 }
 
-
-
-/* ============================================================
-   ATUALIZAR GRÁFICOS AO REDIMENSIONAR A JANELA
-   ============================================================ */
-
 window.addEventListener(
     "resize",
     () => {
 
-
-        /*
-           Só redesenha se
-           a página de gráficos
-           estiver aberta.
-        */
-
         if (
-
             !document
                 .getElementById(
                     "graficosPanel"
                 )
                 .classList
                 .contains("hidden")
-
         ) {
 
             desenharGraficos();
@@ -1742,3 +983,4 @@ window.addEventListener(
 
     }
 );
+```
