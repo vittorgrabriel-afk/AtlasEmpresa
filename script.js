@@ -1,3 +1,4 @@
+```javascript
 let produtos =
     JSON.parse(
         localStorage.getItem("atlasProdutos")
