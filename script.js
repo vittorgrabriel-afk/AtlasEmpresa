@@ -1,4 +1,3 @@
-```javascript
 let produtos =
     JSON.parse(
         localStorage.getItem("atlasProdutos")
@@ -63,7 +62,9 @@ function fazerLogin(event) {
 
         abrirPainel("cadastro");
 
-    } else {
+    }
+
+    else {
 
         document
             .getElementById("loginError")
@@ -83,7 +84,9 @@ function mostrarSenha() {
 
         campo.type = "text";
 
-    } else {
+    }
+
+    else {
 
         campo.type = "password";
 
@@ -469,7 +472,9 @@ function calcularTotais() {
                         movimento.valor
                     );
 
-            } else {
+            }
+
+            else {
 
                 saidas +=
                     Number(
@@ -674,9 +679,13 @@ function prepararCanvas(id) {
 function desenharGraficoFinanceiro() {
 
     const {
+
         ctx,
+
         width,
+
         height
+
     } =
         prepararCanvas(
             "financeChart"
@@ -724,13 +733,19 @@ function desenharGraficoFinanceiro() {
     ctx.stroke();
 
     const valores = [
+
         totais.entradas,
+
         totais.saidas
+
     ];
 
     const nomes = [
+
         "Entradas",
+
         "Saídas"
+
     ];
 
     valores.forEach(
@@ -764,10 +779,15 @@ function desenharGraficoFinanceiro() {
                     : "#e34646";
 
             ctx.fillRect(
+
                 x,
+
                 y,
+
                 barWidth,
+
                 barHeight
+
             );
 
             ctx.fillStyle =
@@ -780,17 +800,25 @@ function desenharGraficoFinanceiro() {
                 "center";
 
             ctx.fillText(
+
                 nomes[i],
+
                 x +
                 barWidth / 2,
+
                 height - 15
+
             );
 
             ctx.fillText(
+
                 moeda(valor),
+
                 x +
                 barWidth / 2,
+
                 y - 8
+
             );
 
         }
@@ -801,9 +829,13 @@ function desenharGraficoFinanceiro() {
 function desenharGraficoEstoque() {
 
     const {
+
         ctx,
+
         width,
+
         height
+
     } =
         prepararCanvas(
             "stockChart"
@@ -852,9 +884,13 @@ function desenharGraficoEstoque() {
             "center";
 
         ctx.fillText(
+
             "Nenhum produto cadastrado.",
+
             width / 2,
+
             height / 2
+
         );
 
         return;
@@ -914,10 +950,15 @@ function desenharGraficoEstoque() {
                     "#155df5";
 
                 ctx.fillRect(
+
                     x,
+
                     y,
+
                     barWidth,
+
                     barHeight
+
                 );
 
                 ctx.fillStyle =
@@ -930,10 +971,14 @@ function desenharGraficoEstoque() {
                     "center";
 
                 ctx.fillText(
+
                     produto.quantidade,
+
                     x +
                     barWidth / 2,
+
                     y - 7
+
                 );
 
                 let nome =
@@ -953,10 +998,14 @@ function desenharGraficoEstoque() {
                 }
 
                 ctx.fillText(
+
                     nome,
+
                     x +
                     barWidth / 2,
+
                     height - 15
+
                 );
 
             }
@@ -969,12 +1018,14 @@ window.addEventListener(
     () => {
 
         if (
+
             !document
                 .getElementById(
                     "graficosPanel"
                 )
                 .classList
                 .contains("hidden")
+
         ) {
 
             desenharGraficos();
@@ -983,4 +1034,3 @@ window.addEventListener(
 
     }
 );
-```

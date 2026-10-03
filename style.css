@@ -1,4 +1,3 @@
-```css
 * {
     box-sizing: border-box;
 }
@@ -88,10 +87,13 @@ button {
 .topbar {
     width: 100%;
     height: 82px;
+
     padding: 0 6%;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     background: rgba(255, 255, 255, 0.95);
     border-bottom: 1px solid var(--line);
 }
@@ -136,9 +138,13 @@ button {
 .home-content {
     width: min(1200px, 92%);
     margin: 0 auto;
+
     min-height: calc(100vh - 82px);
+
     text-align: center;
+
     padding: 70px 30px 60px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -147,24 +153,35 @@ button {
 .main-logo {
     width: 150px;
     height: 150px;
+
     object-fit: contain;
+
     margin-bottom: 25px;
 }
 
 .home-content h1 {
     margin: 0;
+
     max-width: 900px;
+
     font-size: clamp(40px, 5vw, 64px);
+
     line-height: 1.08;
+
     letter-spacing: -2px;
+
     font-weight: 750;
 }
 
 .subtitle {
     max-width: 720px;
+
     margin: 25px 0 30px;
+
     color: var(--muted);
+
     font-size: 17px;
+
     line-height: 1.65;
 }
 
@@ -172,31 +189,44 @@ button {
     display: flex;
     justify-content: center;
     gap: 14px;
+
     margin-bottom: 15px;
 }
 
 .feature-grid {
     width: 100%;
     max-width: 1050px;
+
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 22px;
+
     margin: 65px auto 0;
 }
 
 .feature-card {
     min-height: 190px;
+
     background: var(--white);
+
     border: 1px solid var(--line);
+
     border-radius: 14px;
+
     padding: 25px;
+
     text-align: left;
+
     box-shadow: var(--shadow);
+
     transition: 0.2s;
 }
 
 .feature-card:hover {
     transform: translateY(-4px);
+
     box-shadow:
         0 12px 30px rgba(20, 35, 65, 0.1);
 }
@@ -204,63 +234,90 @@ button {
 .feature-icon {
     width: 50px;
     height: 50px;
+
     border-radius: 12px;
+
     background: var(--blue-light);
+
     display: grid;
     place-items: center;
+
     color: var(--blue);
+
     font-size: 17px;
+
     font-weight: 700;
 }
 
 .feature-card h3 {
     margin: 18px 0 9px;
+
     font-size: 18px;
 }
 
 .feature-card p {
     margin: 0;
+
     color: var(--muted);
+
     font-size: 13px;
+
     line-height: 1.6;
 }
 
 .security-badge {
     display: inline-block;
+
     margin-top: 28px;
+
     padding: 8px 16px;
+
     border-radius: 20px;
+
     background: white;
+
     border: 1px solid var(--line);
+
     color: var(--muted);
+
     font-size: 12px;
 }
 
 .login-layout {
     min-height: 100vh;
+
     display: grid;
+
     grid-template-columns: 430px 1fr;
+
     align-items: center;
+
     gap: 80px;
+
     padding: 50px 7%;
 }
 
 .login-side {
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
 }
 
 .login-brand {
     display: flex;
     align-items: center;
+
     gap: 12px;
+
     margin-bottom: 25px;
 }
 
 .login-brand img {
     width: 50px;
     height: 50px;
+
     object-fit: contain;
 }
 
@@ -271,48 +328,69 @@ button {
 
 .login-card {
     width: 100%;
+
     max-width: 410px;
+
     background: white;
+
     border: 1px solid var(--line);
+
     border-radius: 15px;
+
     padding: 32px;
+
     box-shadow: var(--shadow);
 }
 
 .login-card h2 {
     font-size: 29px;
+
     margin: 0 0 8px;
 }
 
 .login-card > p {
     font-size: 14px;
+
     color: var(--muted);
+
     margin: 0 0 25px;
 }
 
 label {
     display: block;
+
     font-size: 13px;
+
     font-weight: 500;
+
     margin: 17px 0 7px;
 }
 
 input,
 select {
     width: 100%;
+
     height: 46px;
+
     padding: 0 13px;
+
     border: 1px solid #d8dee8;
+
     border-radius: 8px;
+
     background: white;
+
     color: var(--text);
+
     outline: none;
+
     font-size: 13px;
 }
 
 input:focus,
 select:focus {
     border-color: var(--blue);
+
     box-shadow:
         0 0 0 3px rgba(21, 93, 245, 0.09);
 }
@@ -327,68 +405,95 @@ select:focus {
 
 .eye {
     position: absolute;
+
     right: 5px;
     top: 5px;
+
     width: 36px;
     height: 36px;
+
     border: 0;
+
     background: transparent;
+
     color: #6f7887;
 }
 
 .login-card .primary-btn {
     margin-top: 22px;
+
     height: 46px;
 }
 
 .login-error {
     text-align: center;
+
     color: var(--red);
+
     font-size: 12px;
+
     margin-top: 12px;
 }
 
 .login-image {
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 }
 
 .login-image img {
     width: 100%;
     max-width: 720px;
+
     height: 500px;
+
     object-fit: cover;
+
     border-radius: 16px;
+
     box-shadow: var(--shadow);
 }
 
 .dashboard {
     min-height: 100vh;
+
     display: flex;
 }
 
 .sidebar {
     width: 230px;
+
     flex-shrink: 0;
+
     background: white;
+
     border-right: 1px solid var(--line);
+
     padding: 25px 14px;
+
     display: flex;
+
     flex-direction: column;
 }
 
 .sidebar-brand {
     display: flex;
+
     align-items: center;
+
     gap: 12px;
+
     padding: 0 13px;
+
     margin-bottom: 35px;
 }
 
 .sidebar-brand img {
     width: 40px;
     height: 40px;
+
     object-fit: contain;
 }
 
@@ -399,69 +504,100 @@ select:focus {
 
 .sidebar nav {
     display: flex;
+
     flex-direction: column;
+
     gap: 7px;
 }
 
 .nav-item {
     width: 100%;
+
     border: 0;
+
     background: transparent;
+
     color: #3c4552;
+
     text-align: left;
+
     padding: 14px 15px;
+
     border-radius: 8px;
+
     font-size: 14px;
+
     font-weight: 500;
+
     transition: 0.15s;
 }
 
 .nav-item:hover {
     background: var(--blue-light);
+
     color: var(--blue);
 }
 
 .nav-item.active {
     background: var(--blue);
+
     color: white;
+
     box-shadow:
         0 4px 12px rgba(21, 93, 245, 0.18);
 }
 
 .logout-btn {
     margin-top: auto;
+
     height: 42px;
+
     background: white;
+
     border: 1px solid var(--line);
+
     border-radius: 8px;
+
     font-size: 13px;
+
     color: #5e6672;
 }
 
 .logout-btn:hover {
     color: var(--red);
+
     border-color: #efb1b1;
 }
 
 .panel-content {
     flex: 1;
+
     padding: 38px 45px;
+
     overflow: auto;
 }
 
 .panel-section > h2 {
     font-size: 27px;
+
     margin: 0 0 25px;
+
     letter-spacing: -0.5px;
 }
 
 .form-card {
     width: 100%;
+
     max-width: 650px;
+
     background: white;
+
     border: 1px solid var(--line);
+
     border-radius: 14px;
+
     padding: 30px;
+
     box-shadow: var(--shadow);
 }
 
@@ -479,23 +615,32 @@ select:focus {
 
 .table-card {
     background: white;
+
     border: 1px solid var(--line);
+
     border-radius: 14px;
+
     box-shadow: var(--shadow);
+
     overflow: hidden;
 }
 
 th,
 td {
     text-align: left;
+
     padding: 17px 18px;
+
     font-size: 13px;
+
     border-bottom: 1px solid #edf0f5;
 }
 
 th {
     color: #687386;
+
     font-weight: 600;
+
     background: #fafbfe;
 }
 
@@ -505,39 +650,57 @@ td {
 
 .empty-state {
     text-align: center;
+
     color: #818996;
+
     padding: 45px;
+
     font-size: 13px;
 }
 
 .delete-btn {
     border: 0;
+
     background: #fff1f1;
+
     color: var(--red);
+
     border-radius: 6px;
+
     padding: 7px 12px;
+
     font-size: 12px;
 }
 
 .summary-grid {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 18px;
+
     margin-bottom: 22px;
 }
 
 .summary-card {
     background: white;
+
     border: 1px solid var(--line);
+
     border-radius: 13px;
+
     box-shadow: var(--shadow);
+
     padding: 24px;
 }
 
 .summary-card span {
     display: block;
+
     font-size: 13px;
+
     color: var(--muted);
+
     margin-bottom: 9px;
 }
 
@@ -555,23 +718,33 @@ td {
 
 .finance-card {
     background: white;
+
     border: 1px solid var(--line);
+
     border-radius: 13px;
+
     box-shadow: var(--shadow);
+
     padding: 23px;
+
     margin-bottom: 20px;
 }
 
 .section-label {
     display: block;
+
     font-size: 14px;
+
     font-weight: 600;
+
     margin-bottom: 12px;
 }
 
 .movement-form {
     display: grid;
+
     grid-template-columns: 130px 180px 1fr auto;
+
     gap: 10px;
 }
 
@@ -582,51 +755,69 @@ td {
 
 .period-header {
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
 }
 
 .period-buttons {
     display: flex;
+
     gap: 5px;
 }
 
 .period-buttons button {
     border: 0;
+
     background: #eef1f7;
+
     border-radius: 6px;
+
     padding: 8px 13px;
+
     font-size: 11px;
+
     color: #626b78;
 }
 
 .period-buttons button.selected {
     background: var(--blue);
+
     color: white;
 }
 
 .charts-grid {
     display: grid;
+
     grid-template-columns: repeat(2, 1fr);
+
     gap: 22px;
 }
 
 .chart-card {
     background: white;
+
     border: 1px solid var(--line);
+
     border-radius: 14px;
+
     box-shadow: var(--shadow);
+
     padding: 23px;
 }
 
 .chart-card h3 {
     font-size: 16px;
+
     margin: 0 0 15px;
 }
 
 canvas {
     width: 100%;
+
     height: 330px;
+
     display: block;
 }
 
@@ -634,7 +825,9 @@ canvas {
 
     .login-layout {
         grid-template-columns: 1fr;
+
         gap: 40px;
+
         padding: 40px 5%;
     }
 
@@ -644,6 +837,7 @@ canvas {
 
     .login-image img {
         max-width: 700px;
+
         height: 350px;
     }
 
@@ -677,6 +871,7 @@ canvas {
 
     .home-content {
         width: 100%;
+
         padding: 50px 20px;
     }
 
@@ -687,6 +882,7 @@ canvas {
 
     .home-content h1 {
         font-size: 38px;
+
         letter-spacing: -1.3px;
     }
 
@@ -704,8 +900,11 @@ canvas {
 
     .sidebar {
         width: 100%;
+
         padding: 12px;
+
         border-right: 0;
+
         border-bottom: 1px solid var(--line);
     }
 
@@ -715,6 +914,7 @@ canvas {
 
     .sidebar nav {
         flex-direction: row;
+
         overflow-x: auto;
     }
 
@@ -740,7 +940,9 @@ canvas {
 
     .period-header {
         align-items: flex-start;
+
         flex-direction: column;
+
         gap: 12px;
     }
 
@@ -752,4 +954,3 @@ canvas {
         min-width: 700px;
     }
 }
-```
